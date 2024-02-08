@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    table tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+    table tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="customersCtrl">
+    <!-- {{a}} -->
+      <table>
+        <tr ng-repeat="item in data">
+          <td>{{ item.UserName }}</td>
+          <td>{{ item.City }}</td>
+          <td>{{ item.Country }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("customersCtrl", function ($scope, $http) {
+        $http.get("customers_mysql2.php").then(function (response) {
+          $scope.data = response.data
+          console.log(response.data);
+        });
+      });
+    </script>
+  </body>
+</html>
