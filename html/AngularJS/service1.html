@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Document</title>
+</head>
+<body>
+<h3>AngularJS Services</h3>
+<p>In AngularJS you can make your own service, or use one of the many built-in services.</p>
+<h3>What is a Service?</h3>
+<p>In AngularJS, a service is a function, or object, that is available for, and limited to, your AngularJS application.
+<br>
+AngularJS has about 30 built-in services. One of them is the $location service.
+<br>
+The $location service has methods which return information about the location of the current web page:</p>
+
+<h4>URL:</h4>
+<div ng-app="myApp" ng-controller="customersCtrl">
+<p>{{myUrl}}</p>
+</div>
+  
+</body>
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});
+</script>
+</html>

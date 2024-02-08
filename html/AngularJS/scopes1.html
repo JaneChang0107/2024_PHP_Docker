@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>scopes1</title>
+  </head>
+  <body>
+    <h4>How to Use the Scope?</h4>
+    <h5>
+      When you make a controller in AngularJS, you pass the $scope object as an
+      argument:
+    </h5>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <h1>{{carname}}</h1>
+    </div>
+  </body>
+  <script>
+    var app = angular.module("myApp", []);
+
+    app.controller("myCtrl", function ($scope) {
+      $scope.carname = "Volvo";
+    });
+  </script>
+</html>

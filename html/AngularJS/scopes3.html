@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>scopes3</title>
+  </head>
+  <body>
+    <h4>Know Your Scope</h4>
+    <ul>
+      <li>
+        It is important to know which scope you are dealing with, at any time.
+      </li>
+      <li>
+        In the two examples above there is only one scope, so knowing your scope
+        is not an issue, but for larger applications there can be sections in
+        the HTML DOM which can only access certain scopes.
+      </li>
+    </ul>
+    <p>
+      When dealing with the <b>ng-repeat</b> directive, each repetition has
+      access to the current repetition object:
+    </p>
+
+    <div
+      ng-app="myApp"
+      ng-controller="myCtrl"
+      style="background-color: honeydew"
+    >
+      <ul>
+        <li ng-repeat="x in names">{{x}}</li>
+      </ul>
+    </div>
+    <p>
+      in this case a string, which is referred to by using <b>x</b>. Each
+      <b><li></li></b> element has access to the current repetition object,
+    </p>
+  </body>
+  <script>
+    var app = angular.module("myApp", []);
+
+    app.controller("myCtrl", function ($scope) {
+      $scope.names = ["Emil", "Tobias", "Linus"];
+    });
+  </script>
+</html>

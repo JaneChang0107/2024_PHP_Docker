@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <p>The hexadecimal value of 255 is:</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <h1>{{hex}}</h1>
+    </div>
+    <p>
+      A custom service with a method that converts a given number into a
+      hexadecimal number.
+    </p>
+  </body>
+
+  <script>
+    var app = angular.module("myApp", []);
+
+    app.service('hexafy',function(){
+      this.myFunc = function(x){
+        return x.toString(16);
+      }
+    });
+
+    app.controller("myCtrl", function ($scope, hexafy) {
+      $scope.hex = hexafy.myFunc(255);
+    });
+  </script>
+</html>

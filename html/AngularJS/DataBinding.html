@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Data Binding</title>
+  </head>
+  <body>
+    <h4>Data Binding</h4>
+    <div ng-app="" ng-init="quantity=10;price=100">
+      Quantity: <input type="number" ng-model="quantity" /> Costs:
+      <input type="number" ng-model="price" />
+
+      Total in dollar: {{ quantity * price }}
+    </div>
+  </body>
+</html>

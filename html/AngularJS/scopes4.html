@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>scopes4</title>
+  </head>
+  <body ng-app="myApp">
+    <h4>Root Scope</h4>
+    <ul>
+      <li>
+        All applications have a <b>$rootScope</b> which is the scope created on
+        the HTML element that contains the ng-app directive.
+      </li>
+      <li>The rootScope is available in the entire application.</li>
+      <li>
+        If a variable has the same name in both the current scope and in the
+        rootScope, the application uses the one in the current scope.
+      </li>
+    </ul>
+    <p>
+      A variable named "color" exists in both the controller's scope and in the
+      rootScope:
+    </p>
+
+    <p>The rootScope's favorite color:</p>
+    <h1><b>{{color}}</b></h1>
+
+    <div ng-controller="myCtrl" style="background-color: honeydew">
+      <p>The scope of the controller's favorite color:</p>
+      <h1><b>{{color}}</b></h1>
+    </div>
+
+    <p>The rootScope's favorite color is still:</p>
+    <h1><b>{{color}}</b></h1>
+
+    <script>
+      var app = angular.module("myApp", []);
+      app.run(function ($rootScope) {
+        $rootScope.color = "blue";
+      });
+      app.controller("myCtrl", function ($scope) {
+        $scope.color = "red";
+      });
+    </script>
+  </body>
+</html>

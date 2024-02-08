@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <body>
+    <div
+      ng-app="myApp"
+      ng-controller="myCtrl"
+      style="background-color: blanchedalmond"
+    >
+      <p>Name : <input type="text" ng-model="name" /></p>
+      <h1>Hello {{name}}</h1>
+      <p ng-bind="name"></p>
+      <p>My first expression: {{ 123+456 }}</p>
+      {{ firstName + " " + lastName }}
+    </div>
+    <br />
+    AngularJS is a JavaScript framework written in JavaScript.
+    <h2>AngularJS is a JavaScript Framework</h2>
+    AngularJS is distributed as a JavaScript file, and can be added to a web
+    page with a script tag:
+    <br />
+    https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js
+
+    <h2>AngularJS Extends HTML</h2>
+    <ul>
+      <li>AngularJS extends HTML with ng-directives.</li>
+      <li>The <b>ng-app</b> directive defines an AngularJS application.</li>
+      <li>
+        The <b>ng-model</b> directive binds the value of HTML controls (input,
+        select, textarea) to application data.
+      </li>
+      <li>
+        The <b>ng-bind</b> directive binds application data to the HTML view.
+      </li>
+    </ul>
+
+    <h2>AngularJS Expressions</h2>
+    <ul>
+      <li>
+        AngularJS expressions can be written inside double braces:
+        <b>{{ expression }}</b>
+      </li>
+      <li>
+        AngularJS expressions can also be written inside a directive:
+        <b>"ng-bind="expression"</b>.
+      </li>
+      <li>
+        AngularJS will resolve the expression, and return the result exactly
+        where the expression is written.
+      </li>
+      <li>
+        AngularJS expressions are much like JavaScript expressions: They can
+        contain literals, operators, and variables. Example {{ 5 + 5 }} or {{
+        firstName + " " + lastName }}
+      </li>
+    </ul>
+
+    <hr />
+    AngularJS lets you extend HTML with new attributes called Directives.
+    <br />
+    AngularJS has a set of built-in directives which offers functionality to
+    your applications.
+    <br />
+    AngularJS also lets you define your own directives.
+
+    <h2>AngularJS Directives</h2>
+    <ul>
+      <li>
+        AngularJS directives are extended HTML attributes with the prefix
+        <b>ng-.</b>
+      </li>
+      <li>The <b>ng-app</b> directive initializes an AngularJS application.</li>
+      <li>The <b>ng-init</b> directive initializes application data.</li>
+      <li>
+        The <b>ng-model</b> directive binds the value of HTML controls (input,
+        select, textarea) to application data.
+      </li>
+      <li>
+        Read about all AngularJS directives in our AngularJS directive
+        reference.
+      </li>
+      <li>https://www.w3schools.com/angular/angular_ref_directives.asp</li>
+    </ul>
+  </body>
+  <script>
+    //Module
+    var app = angular.module("myApp", []);
+
+    app.controller("myCtrl", function ($scope) {
+      $scope.firstName = "Happy";
+      $scope.lastName = "Spiral";
+    });
+  </script>
+</html>
